@@ -700,6 +700,12 @@ export default function Home() {
 
   return (
     <div className="">
+      {!data.datasets[0].length && (
+        <div className="spinner">
+          <div className="loading-circle"></div>
+          <p>データの計算には数秒~数分かかります</p>
+        </div>
+      )}
       <Bar options={options} data={data} />
       <div>{calculatePoint()}</div>
       <div>リザードンに進化した回数{(100 * okCnt) / (500 * 10000)}%</div>
