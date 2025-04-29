@@ -172,6 +172,270 @@ export default function Home() {
   });
   const [above232Percentage, setAbove232Percentage] = useState(0);
 
+  const [player, setPlayer] = useState({
+    isEnemy: false,
+    isFirst: false,
+    field: [],
+    isUsedSuport: false,
+    cards: [
+      {
+        id: 1,
+        name: "ヒトカゲ",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 2,
+        name: "ヒトカゲ",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 3,
+        name: "リザードンex",
+        isSeed: false,
+        isPokemon: true,
+      },
+      {
+        id: 4,
+        name: "リザードンex",
+        isSeed: false,
+        isPokemon: true,
+      },
+      {
+        id: 5,
+        name: "ふしぎなアメ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 6,
+        name: "ふしぎなアメ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 7,
+        name: "博士の研究",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 8,
+        name: "博士の研究",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 9,
+        name: "ポケモン通信",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 10,
+        name: "ポケモン通信",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 11,
+        name: "ナンジャモ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 12,
+        name: "ナンジャモ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 13,
+        name: "大きなマント",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 14,
+        name: "レッドカード",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 15,
+        name: "モンスターボール",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 16,
+        name: "モンスターボール",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 17,
+        name: "ナツメ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 18,
+        name: "ナツメ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 19,
+        name: "アカギ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 20,
+        name: "アカギ",
+        isSeed: false,
+        isPokemon: false,
+      },
+    ],
+    deck: [],
+    hands: [],
+    trash: [],
+  });
+
+  const [enemy, setEnemy] = useState({
+    isEnemy: true,
+    isFirst: false,
+    isUsedSuport: false,
+    field: [],
+    cards: [
+      {
+        id: 1,
+        name: "ギラティナex",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 2,
+        name: "ギラティナex",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 3,
+        name: "ダークライex",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 4,
+        name: "ダークライex",
+        isSeed: true,
+        isPokemon: true,
+      },
+      {
+        id: 5,
+        name: "モンスターボール",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 6,
+        name: "モンスターボール",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 7,
+        name: "きずぐすり",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 8,
+        name: "きずぐすり",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 9,
+        name: "大きなマント",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 10,
+        name: "大きなマント",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 11,
+        name: "ゴツゴツメット",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 12,
+        name: "博士の研究",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 13,
+        name: "博士の研究",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 14,
+        name: "ポケモンセンターのお姉さん",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 15,
+        name: "レッド",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 16,
+        name: "マーズ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 17,
+        name: "マーズ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 18,
+        name: "リーフ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 19,
+        name: "ナツメ",
+        isSeed: false,
+        isPokemon: false,
+      },
+      {
+        id: 20,
+        name: "ロケット団のしたっぱ",
+        isSeed: false,
+        isPokemon: false,
+      },
+    ],
+    deck: [],
+    hands: [],
+    trash: [],
+  });
+
   const [median, setMedian] = useState(0);
   const [avg, setAvg] = useState(0);
 
@@ -205,19 +469,27 @@ export default function Home() {
     return shuffled; // シャッフルされた配列を返す
   }
 
-  function draw(deck, hands, count) {
+  function shuffleDeck(user) {
+    const { deck } = user;
+    return { ...user, deck: shuffleArray(deck) };
+  }
+
+  function draw(user, count) {
+    const { hands, deck } = user;
     const updated = [...deck];
     const newHands = [...hands, ...updated.splice(0, count)];
     const newDeck = [...deck.splice(count)];
 
-    return { newHands, newDeck };
+    return { ...user, hands: newHands, deck: newDeck };
   }
 
-  function isOk(newTrash, newHands) {
+  function isOk(user) {
+    const { field, hands, isEnemy } = user;
     return (
-      newTrash.some((v) => v.name === "ヒトカゲ") &&
-      newHands.some((v) => v.name === "リザードンex") &&
-      newHands.some((v) => v.name === "ふしぎなアメ")
+      field.some((v) => v.name === "ヒトカゲ") &&
+      hands.some((v) => v.name === "リザードンex") &&
+      hands.some((v) => v.name === "ふしぎなアメ") &&
+      !isEnemy
     );
   }
 
@@ -290,16 +562,17 @@ export default function Home() {
     return { newHands, newDeck, newTrash };
   }
 
-  function handleMonsterBall(hands, deck, trash) {
+  function handleMonsterBall(user) {
+    const { hands, deck, trash } = user;
     if (!deck.some((v) => v.isSeed) || !isCard(hands, "モンスターボール"))
-      return { newHands: hands, newDeck: deck, newTrash: trash };
+      return { ...user };
 
     let { newHands, newTrash } = useCard("モンスターボール", hands, trash);
     const seedPokemon = shuffleArray([...deck.filter((v) => v.isSeed)])[0];
     const newDeck = [...deck.filter((v) => v.id !== seedPokemon.id)];
     newHands = [...newHands, seedPokemon];
 
-    return { newHands, newDeck, newTrash };
+    return { ...user, hands: newHands, deck: newDeck, trash: newTrash };
   }
 
   function isHandName(hands, cardName) {
@@ -316,21 +589,36 @@ export default function Home() {
     return { newHands, newTrash };
   }
 
-  function handleIono(hands, deck, trash) {
+  function handleIono(user) {
+    const { hands, deck, trash, isUsedSuport } = user;
+
     if (
-      isCard(hands, "ふしぎなアメ") &&
-      isCard(hands, "ポケモン通信") &&
-      isCardInPokemon(hands)
+      !isCard(hands, "ナンジャモ") ||
+      (isCard(hands, "ふしぎなアメ") &&
+        isCard(hands, "ポケモン通信") &&
+        isCardInPokemon(hands)) ||
+      isUsedSuport
     )
-      return { newDeck: deck, newTrash: trash, newHands: hands };
+      return { ...user };
 
     let { newHands, newTrash } = useCard("ナンジャモ", hands, trash);
     const handsNum = newHands.length;
 
-    let newDeck = [...shuffleArray([newHands, ...deck])];
-    ({ newHands, newDeck } = draw(newDeck, [], handsNum));
+    const newDeck = [...shuffleArray([newHands, ...deck])];
+    const newUser = draw(
+      {
+        ...user,
+        deck: newDeck,
+        hands: [],
+        trash: newTrash,
+      },
+      handsNum
+    );
 
-    return { newDeck, newTrash, newHands };
+    return {
+      ...newUser,
+      isUsedSuport: true,
+    };
   }
 
   function isCard(hands, cardName) {
@@ -341,16 +629,20 @@ export default function Home() {
     return hands.some((v) => v.isPokemon);
   }
 
-  function handlePokemonCommunication(hands, deck, trash) {
+  function handlePokemonCommunication(user) {
+    const { hands, deck, trash, isEnemy } = user;
+
     if (
       !isCard(hands, "ポケモン通信") ||
       !isCardInPokemon(hands) ||
       isCard(hands, "リザードンex") ||
-      !deck.some((v) => v.isPokemon)
+      !deck.some((v) => v.isPokemon) ||
+      isEnemy
     )
-      return { newHands: hands, newDeck: deck, newTrash: trash };
+      return { ...user };
 
     let { newTrash, newHands } = useCard("ポケモン通信", hands, trash);
+
     const handPokemon = [...newHands.filter((v) => v.isPokemon)][0];
 
     let newDeck = [...shuffleArray([handPokemon, ...deck])];
@@ -361,15 +653,68 @@ export default function Home() {
         .filter((card) => card.id !== handPokemon.id),
     ][0];
 
+    newDeck = [...newDeck.filter((card) => card.id !== pokemon.id)];
+
     newHands = [...newHands.filter((v) => v.id !== handPokemon.id), pokemon];
 
-    return { newHands, newDeck, newTrash };
+    return { ...user, hands: newHands, deck: newDeck, trash: newTrash };
+  }
+
+  function handleMars(activeUser, nonActiveUser, num = 3) {
+    const { hands, trash, isUsedSuport } = activeUser;
+    if (!isCard(hands, "マーズ") || isUsedSuport)
+      return { newActiveUser: activeUser, newNonActiveUser: nonActiveUser };
+
+    const { newHands, newTrash } = useCard("マーズ", hands, trash);
+
+    let { hands: opoHands, deck: opoDeck } = nonActiveUser;
+    const newDeck = shuffleArray([...opoDeck, ...opoHands]);
+    opoHands = [];
+    let newNonActiveUser = {
+      ...nonActiveUser,
+      hands: [...opoHands],
+      deck: [...newDeck],
+    };
+    newNonActiveUser = draw(newNonActiveUser, num);
+
+    return {
+      newActiveUser: {
+        ...activeUser,
+        hands: newHands,
+        trash: newTrash,
+        isUsedSuport: true,
+      },
+      newNonActiveUser,
+    };
+  }
+
+  function setField(user) {
+    const { hands, field } = user;
+    const seedPokemon = hands.filter((card) => card.isSeed)[0];
+    const newField = [...field, seedPokemon];
+    const newHands = [...hands.filter((card) => card.id !== seedPokemon.id)];
+
+    return { ...user, hands: newHands, field: newField };
+  }
+
+  function handleOrchid(user) {
+    const { hands, deck, trash, isUsedSuport } = user;
+    if (!isCard(hands, "博士の研究") || isUsedSuport) return { ...user };
+    const { newHands, newTrash } = useCard("博士の研究", hands, trash);
+    const newUser = draw({ ...user, hands: newHands, trash: newTrash }, 2);
+
+    return { ...newUser, isUsedSuport: true };
+  }
+
+  function turnEnd(user) {
+    return { ...user, isUsedSuport: false };
   }
 
   useEffect(() => {
-    const test = true;
     let updatedOkCnt = 0;
     let updateLabels = [];
+    const test = true;
+
     const updatedData = {
       labels: updateLabels,
       datasets: [
@@ -381,93 +726,164 @@ export default function Home() {
       ],
     };
     let activePoint = 0;
+
     for (let j = 0; j < 10000; j++) {
       let upCnt = 0;
 
       // 1戦の設定
       for (let i = 0; i < 500; i++) {
-        let newDeck = [...cards];
-        let newTrash = [newDeck[0]];
-        let updated;
-        let newHands = [];
+        let newPlayer = {
+          ...player,
+          deck: [...player.cards],
+        };
 
-        newDeck = shuffleArray(newDeck.splice(1));
+        let newEnemy = {
+          ...enemy,
+          deck: [...enemy.cards],
+        };
 
-        ({ newHands, newDeck } = draw(newDeck, newHands, 5));
+        const turnOrder = shuffleArray([true, false]); // true: 先行, false: 後攻
+        newPlayer.isFirst = turnOrder[0];
+        newEnemy.isFirst = turnOrder[1];
 
-        if (isOk(newTrash, newHands)) {
-          upCnt++;
-          continue;
+        // たねポケモンを選ぶ
+
+        newPlayer = getRandomSeedPokemon(newPlayer);
+
+        newEnemy = getRandomSeedPokemon(newEnemy);
+
+        // デッキをシャッフルする
+        newPlayer = shuffleDeck(newPlayer);
+
+        newEnemy = shuffleDeck(newEnemy);
+
+        // 4枚ドローする
+        newPlayer = draw(newPlayer, 4);
+        newEnemy = draw(newEnemy, 4);
+
+        // 手札からたねポケモンを1匹選んで場に出す
+        newPlayer = setField(newPlayer);
+        newEnemy = setField(newEnemy);
+
+        // 1ターン目
+        // 先攻からスタート
+        let activeUser = newPlayer.isFirst ? { ...newPlayer } : { ...newEnemy };
+
+        activeUser = draw(activeUser, 1);
+
+        // if (activeUser.isEnemy) {
+        //   // マーズを使用する
+        //   ({ newActiveUser: activeUser, newNonActiveUser: newPlayer } =
+        //     handleMars(activeUser, newPlayer));
+        // }
+
+        // モンスターボールの処理
+        activeUser = handleMonsterBall(activeUser);
+
+        // 博士の研究
+        activeUser = handleOrchid(activeUser);
+
+        activeUser = turnEnd(activeUser);
+
+        if (activeUser.isEnemy) {
+          newEnemy = { ...activeUser };
         } else {
-          ({ newDeck, newHands, newTrash } = handleMonsterBall(
-            newHands,
-            newDeck,
-            newTrash
-          ));
-
-          switch (true) {
-            case isHandName(newHands, "博士の研究"):
-              ({ newHands, newDeck } = draw(newDeck, newHands, 2));
-              ({ newHands, newTrash } = useCard(
-                "博士の研究",
-                newHands,
-                newTrash
-              ));
-
-              break;
-
-            default:
-              // どの条件にも一致しない場合の処理（必要なら記述）
-              break;
-          }
+          newPlayer = { ...activeUser };
         }
 
-        // 2ターン目
-        ({ newHands, newDeck } = draw(newDeck, newHands, 1));
+        // 後攻
+        activeUser = newPlayer.isFirst ? { ...newEnemy } : { ...newPlayer };
 
-        ({ newDeck, newHands, newTrash } = handleMonsterBall(
-          newHands,
-          newDeck,
-          newTrash
-        ));
+        activeUser = draw(activeUser, 1);
 
-        if (isOk(newTrash, newHands)) {
-          upCnt++;
-          continue;
+        if (activeUser.isEnemy) {
+          // マーズを使用する
+          ({ newActiveUser: activeUser, newNonActiveUser: newPlayer } =
+            handleMars(activeUser, newPlayer));
+        }
+
+        // モンスターボールの処理
+        activeUser = handleMonsterBall(activeUser);
+
+        // 博士の研究
+        activeUser = handleOrchid(activeUser);
+
+        activeUser = turnEnd(activeUser);
+
+        if (activeUser.isEnemy) {
+          newEnemy = { ...activeUser };
         } else {
-          switch (true) {
-            case isHandName(newHands, "博士の研究"):
-              ({ newHands, newDeck } = draw(newDeck, newHands, 2));
-              ({ newHands, newTrash } = useCard(
-                "博士の研究",
-                newHands,
-                newTrash
-              ));
-              break;
-
-            case isHandName(newHands, "ナンジャモ"):
-              ({ newHands, newDeck, newTrash } = handleIono(
-                newHands,
-                newDeck,
-                newTrash
-              ));
-              break;
-
-            default:
-              // どの条件にも一致しない場合の処理（必要なら記述）
-              break;
-          }
+          newPlayer = { ...activeUser };
         }
-        ({ newHands, newDeck, newTrash } = handlePokemonCommunication(
-          newHands,
-          newDeck,
-          newTrash
-        ));
 
-        if (isOk(newTrash, newHands)) {
+        // 2ターン目 先攻
+        activeUser = newPlayer.isFirst ? { ...newPlayer } : { ...newEnemy };
+
+        activeUser = draw(activeUser, 1);
+
+        if (activeUser.isEnemy) {
+          ({ newActiveUser: activeUser, newNonActiveUser: newPlayer } =
+            handleMars(activeUser, newPlayer));
+        }
+
+        activeUser = handleMonsterBall(activeUser);
+
+        activeUser = handleOrchid(activeUser);
+
+        if (isOk(activeUser)) {
           upCnt++;
           continue;
         }
+
+        activeUser = handleIono(activeUser);
+
+        activeUser = handlePokemonCommunication(activeUser);
+
+        if (isOk(activeUser)) {
+          upCnt++;
+          continue;
+        }
+
+        activeUser = turnEnd(activeUser);
+
+        if (activeUser.isEnemy) {
+          newEnemy = { ...activeUser };
+        } else {
+          newPlayer = { ...activeUser };
+        }
+
+        // 2ターン目後攻
+        activeUser = newPlayer.isFirst ? { ...newEnemy } : { ...newPlayer };
+
+        activeUser = draw(activeUser, 1);
+
+        activeUser = handleMonsterBall(activeUser);
+        activeUser = handleOrchid(activeUser);
+
+        if (isOk(activeUser)) {
+          upCnt++;
+          continue;
+        }
+
+        activeUser = handleIono(activeUser);
+        activeUser = handlePokemonCommunication(activeUser);
+
+        if (isOk(activeUser)) {
+          upCnt++;
+          continue;
+        }
+
+        activeUser = turnEnd(activeUser);
+
+        if (activeUser.isEnemy) {
+          newEnemy = { ...activeUser };
+        } else {
+          newPlayer = { ...activeUser };
+        }
+      }
+
+      if (j % 1000 === 0) {
+        console.log(upCnt, j);
       }
 
       if (updateLabels.some((v) => v === upCnt)) {
@@ -484,6 +900,7 @@ export default function Home() {
         );
         updatedData.labels = updateLabels;
       }
+
       if (232 <= upCnt) activePoint++;
       updatedOkCnt += upCnt;
     }
@@ -519,6 +936,19 @@ export default function Home() {
 
     const sum = data.reduce((acc, value) => acc + value, 0); // 配列の合計を計算
     return sum / data.length; // 合計を配列の長さで割る
+  }
+
+  function getRandomSeedPokemon(user) {
+    const { deck, hands } = user;
+    const seedPokemons = deck.filter((card) => card.isSeed);
+    if (!seedPokemons) return user; // 該当カードがない場合はnullを返す
+
+    const seedPokemon = shuffleArray(seedPokemons)[0];
+
+    const newHands = [...hands, seedPokemon];
+    const newDeck = [...deck.filter((card) => card.id !== seedPokemon.id)];
+
+    return { ...user, hands: newHands, deck: newDeck };
   }
 
   function calculateMedian(data) {
@@ -690,7 +1120,7 @@ export default function Home() {
 
   return (
     <div className="">
-      {!data.datasets[0].length && (
+      {!data.datasets[0].length < 1 && (
         <div className="spinner">
           <div className="loading-circle"></div>
           <p>データの計算には数秒~数分かかります</p>
